@@ -1,0 +1,9 @@
+Symfony/Console: https://symfony.com/doc/current/components/console.html
+
+Symfony/yaml:   https://symfony.com/doc/current/components/yaml.html
+                https://www.sitepoint.com/using-yaml-in-php-projects/
+
+Implement Symfony/Console:  https://kerneldev.com/2017/12/16/how-to-build-a-command-line-application-using-php/
+                            https://www.sitepoint.com/re-introducing-symfony-console-cli-php-uninitiated/
+
+Array to CSV: https://www.php.net/manual/en/function.fputcsv.php

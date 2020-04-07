@@ -1,0 +1,6 @@
+{
+    "require": {
+        "symfony/console": "^5.0",
+        "symfony/yaml": "^5.0"
+    }
+}
