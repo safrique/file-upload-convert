@@ -16,12 +16,10 @@ class UploadFileCommand extends Command
     {
         $this->setName("ConvertFile")
             ->setDescription("Uploads & converts a file to new format and saves or displays it")
-            ->addArgument('FileLocation', InputArgument::REQUIRED,
-                'Please specify a file location')
-            ->addArgument('NewFileType', InputArgument::REQUIRED,
-                'Please specify the new file type to convert to')
-            ->addArgument('SaveOrDisplay', InputArgument::OPTIONAL,
-                'Please specify whether to save or display the new file');
+            ->addArgument('FileLocation', InputArgument::REQUIRED, 'Please specify a file location')
+            ->addArgument('NewFileType', InputArgument::REQUIRED, 'Please specify the new file type to convert to')
+            ->addArgument('SaveOrDisplay', InputArgument::OPTIONAL, 'Please specify whether to save or display the new file')
+            ->addArgument('SaveLocation', InputArgument::OPTIONAL, 'Please specify where to save the new file to');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -29,20 +27,14 @@ class UploadFileCommand extends Command
         $location = $input->getArgument('FileLocation');
         $new_file_type = $input->getArgument('NewFileType');
         $save_or_display = $input->getArgument('SaveOrDisplay');
+        $save_location = $input->getArgument('SaveLocation');
 
-//        $output->writeln("location=$location");
-//        $output->writeln("new_file_type=$new_file_type");
-//        $output->writeln("save_or_display=$save_or_display");
-
-        $reader = new ConvertFile($location, $new_file_type);
-
-        $result = $reader->getFile($save_or_display);
-        print_r($result);
-        echo "\n\n\n";
+        (new ConvertFile($location, $new_file_type, $save_or_display, $save_location))->execute();
 
         $output->writeln("location=$location");
         $output->writeln("new_file_type=$new_file_type");
         $output->writeln("save_or_display=$save_or_display");
+        $output->writeln("save_location=$save_location");
 
         return 1;
     }
