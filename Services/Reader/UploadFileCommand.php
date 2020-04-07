@@ -4,6 +4,7 @@ namespace FileReader;
 
 require_once __DIR__ . '/ConvertFile.php';
 
+use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -12,6 +13,9 @@ use Symfony\Component\Console\Input\InputOption;
 
 class UploadFileCommand extends Command
 {
+    /**
+     * Configures the CLI Command
+     */
     protected function configure()
     {
         $this->setName("ConvertFile")
@@ -22,6 +26,15 @@ class UploadFileCommand extends Command
             ->addArgument('SaveLocation', InputArgument::OPTIONAL, 'Please specify where to save the new file to');
     }
 
+    /**
+     * Executes the Command
+     *
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     *
+     * @return int
+     * @throws Exception
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $location = $input->getArgument('FileLocation');
@@ -31,10 +44,10 @@ class UploadFileCommand extends Command
 
         (new ConvertFile($location, $new_file_type, $save_or_display, $save_location))->execute();
 
-        $output->writeln("location=$location");
-        $output->writeln("new_file_type=$new_file_type");
-        $output->writeln("save_or_display=$save_or_display");
-        $output->writeln("save_location=$save_location");
+//        $output->writeln("location=$location");
+//        $output->writeln("new_file_type=$new_file_type");
+//        $output->writeln("save_or_display=$save_or_display");
+//        $output->writeln("save_location=$save_location");
 
         return 1;
     }
