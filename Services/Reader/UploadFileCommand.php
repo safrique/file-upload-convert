@@ -30,6 +30,10 @@ class UploadFileCommand extends Command
         $new_file_type = $input->getArgument('NewFileType');
         $save_or_display = $input->getArgument('SaveOrDisplay');
 
+//        $output->writeln("location=$location");
+//        $output->writeln("new_file_type=$new_file_type");
+//        $output->writeln("save_or_display=$save_or_display");
+
         $reader = new ConvertFile($location, $new_file_type);
 
         $result = $reader->getFile($save_or_display);

@@ -16,18 +16,19 @@ class ConvertFile
 
     public function __construct($filename, $to_file_type, $save = false)
     {
-        if (!in_array($ext = pathinfo($this->filename, PATHINFO_EXTENSION), $this->accepted_ext)) {
-            throw new \Exception("The file extension $ext is not valid");
+        if (!in_array($ext = pathinfo($filename, PATHINFO_EXTENSION), $this->accepted_ext)) {
+            throw new \Exception("The original file extension $ext is not valid");
         }
 
         if (!in_array($to_file_type, $this->accepted_ext)) {
-            throw new \Exception("The file extension $to_file_type is not valid");
+            throw new \Exception("The target file extension $to_file_type is not valid");
         }
 
         $this->save = $save;
         $this->ext = $ext;
         $this->filename = $filename;
         $this->to_file_type = $to_file_type;
+        print_r("The original file $this->filename with extension $this->ext is to be converted to $this->to_file_type and " . ($this->save ? 'saved' : 'displayed') . "\n");
     }
 
     public function getFile()
