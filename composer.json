@@ -5,5 +5,15 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "FileReader\\": "src/Services/Reader"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FileReader\\": "tests/Services/Reader"
+        }
     }
 }
