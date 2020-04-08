@@ -1,19 +1,27 @@
 {
-    "require": {
-        "symfony/console": "^5.0",
-        "symfony/yaml": "^5.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.1"
-    },
-    "autoload": {
-        "psr-4": {
-            "FileReader\\": "src/Services/Reader"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "FileReader\\": "tests/Services/Reader"
-        }
+  "require": {
+    "symfony/console": "^5.0",
+    "symfony/yaml": "^5.0",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.1",
+    "symfony/phpunit-bridge": "^5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "Commands\\": "src/Commands",
+      "FileReader\\": "src/Services/Reader",
+      "Helpers\\": "src/Services/Helpers"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\": "tests/",
+      "Commands\\": "tests/Commands",
+      "FileReader\\": "tests/Services/Reader",
+      "Helpers\\": "tests/Services/Helpers"
+    }
+  }
 }

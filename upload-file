@@ -2,10 +2,5 @@
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';
-
-use FileReader\UploadFileCommand;
-use Symfony\Component\Console\Application;
-
-$app = new Application();
-$app->add(new UploadFileCommand());
-$app->run();
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/src/Commands/CLI/UploadFileCliCommand.php';
