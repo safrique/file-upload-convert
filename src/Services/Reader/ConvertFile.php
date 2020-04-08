@@ -97,11 +97,15 @@ class ConvertFile
                 throw new Exception("A location has to be specified to save the file!!");
             }
 
+            if ($this->to_file_type != (pathinfo($this->save_location, PATHINFO_EXTENSION))) {
+                $this->save_location .= $this->to_file_type;
+            }
+
             $this->file_helper->saveFile($this->save_location, $new_file);
         }
 
         if (!$this->save) {
-            print_r($new_file);
+            var_dump($new_file);
         }
 
         print_r("\n\nRESULT:\nThe original file $this->filename with extension $this->ext was converted to $this->to_file_type and "
